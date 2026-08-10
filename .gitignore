@@ -1,5 +1,14 @@
 # Dependencies 
 node_modules/ 
+dist/
+
+# Environment variables
+.env
+.env.local
+*.local
+
+# Prisma generated files
+**/generated/prisma/
 
 # Logs and OS files
 *.log
