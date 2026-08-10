@@ -1,6 +1,15 @@
 // apps/api/src/index.ts
 
-import type { Status } from "@job-tracker/shared-types";
+// imports
+import express from "express";
 
-const myStatus: Status = "applied";
-console.log("updated:", myStatus);
+const app = express();
+const PORT = Number(process.env.PORT) || 3000;
+
+app.get("/health", (req, res) => {
+    res.json({ status: "ok" });
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
