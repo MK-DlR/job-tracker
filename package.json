@@ -1,0 +1,29 @@
+{
+  "name": "job-tracker",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Job application tracker built to learn TypeScript",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MK-DlR/job-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MK-DlR/job-tracker/issues"
+  },
+  "homepage": "https://github.com/MK-DlR/job-tracker#readme"
+}
