@@ -1,0 +1,8 @@
+# Dependencies 
+node_modules/ 
+
+# Logs and OS files
+*.log
+
+# Resources
+docs/
