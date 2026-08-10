@@ -3,4 +3,4 @@
 import type { Status } from "@job-tracker/shared-types";
 
 const myStatus: Status = "applied";
-console.log(myStatus);
+console.log("updated:", myStatus);
