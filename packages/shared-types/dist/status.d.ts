@@ -1,2 +1,2 @@
-export type Status = "applied" | "interviewing" | "offer" | "rejected" | "ghosted";
+export { Status } from "@job-tracker/database";
 //# sourceMappingURL=status.d.ts.map
