@@ -2,11 +2,35 @@
 
 // imports
 import { Router } from "express";
-import type { Request, Response } from "express";
 import { prisma, Prisma } from "@job-tracker/database";
+
 import type { CreateApplicationInput, UpdateApplicationInput } from "@job-tracker/shared-types";
+import type { Request, Response } from "express";
+import type { StatusCounts } from "@job-tracker/shared-types";
 
 const router = Router();
+
+// stats counts
+router.get("/stats/counts", async (req: Request, res: Response<StatusCounts>) => {
+    const grouped = await prisma.application.groupBy({
+        by: ["status"],
+        _count: { status: true },
+    });
+
+    const counts: StatusCounts = {
+        APPLIED: 0,
+        INTERVIEWING: 0,
+        OFFERED: 0,
+        REJECTED: 0,
+        GHOSTED: 0,
+    };
+
+    for (const group of grouped) {
+        counts[group.status] = group._count.status;
+    }
+
+    res.json(counts);
+})
 
 // create application
 router.post("/", async (req: Request<{}, {}, CreateApplicationInput>, res: Response) => {
