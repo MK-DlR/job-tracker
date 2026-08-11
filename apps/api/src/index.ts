@@ -4,10 +4,16 @@
 import "dotenv/config";
 import express from "express";
 import { prisma } from "@job-tracker/database";
+import applicationsRouter from "./routes/applications.js";
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
+// middleware
+app.use(express.json()); 
+
+// routes
+app.use("/applications", applicationsRouter);
 app.get("/health", (req, res) => {
     res.json({ status: "ok" });
 });
