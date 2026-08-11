@@ -12,7 +12,8 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run build:watch -w packages/shared-types\" \"npm run build:watch -w packages/database\" \"npm run dev -w apps/api\""
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/MK-DlR/job-tracker/issues"
   },
-  "homepage": "https://github.com/MK-DlR/job-tracker#readme"
+  "homepage": "https://github.com/MK-DlR/job-tracker#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.4"
+  }
 }
