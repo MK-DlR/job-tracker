@@ -1,9 +1,13 @@
 // packages/database/src/index.ts
 
+// imports
 import { PrismaClient } from "./generated/prisma/client.js";
 import { PrismaPg } from "@prisma/adapter-pg";
 
+// exports
 export { Status } from "./generated/prisma/enums.js";
+export { PrismaClient };
+export type { ApplicationModel, ApplicationCreateInput } from "./generated/prisma/models/Application.js";
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 export const prisma = new PrismaClient({ adapter });
