@@ -1,5 +1,5 @@
-# Dependencies 
-node_modules/ 
+# Dependencies
+node_modules/
 dist/
 
 # Environment variables
@@ -9,6 +9,10 @@ dist/
 
 # Prisma generated files
 **/generated/prisma/
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
 
 # Logs and OS files
 *.log
