@@ -3,7 +3,7 @@
 // imports
 import "dotenv/config";
 import express from "express";
-import { prisma } from "@job-tracker/database";
+// import { prisma } from "@job-tracker/database";
 import applicationsRouter from "./routes/applications.js";
 
 const app = express();
