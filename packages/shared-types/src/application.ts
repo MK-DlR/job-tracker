@@ -13,3 +13,9 @@ export type UpdateApplicationInput = Partial<CreateApplicationInput>;
 export type StatusCounts = {
     [key in Status]: number;
 };
+
+export type ApplicationResponse = Omit<ApplicationModel, "dateApplied" | "createdAt" | "updatedAt"> & {
+    dateApplied: string;
+    createdAt: string;
+    updatedAt: string;
+};

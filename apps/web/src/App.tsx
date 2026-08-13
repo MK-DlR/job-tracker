@@ -4,37 +4,38 @@
 import { useState, useEffect } from "react";
 
 import ApplicationCard from "./components/ApplicationCard";
-import type { ApplicationModel } from "@job-tracker/shared-types";
+import type { ApplicationResponse } from "@job-tracker/shared-types";
 
 function App() {
-  const [applications, setApplications] = useState<ApplicationModel[]>([]);
-  // TEMP
-  console.log(applications);
+  const [applications, setApplications] = useState<ApplicationResponse[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/applications")
       .then((res) => res.json())
-      .then((data: ApplicationModel[]) => setApplications(data))
+      .then((data: ApplicationResponse[]) => setApplications(data))
   }, []);
 
   return (
     <div>
       <h1>Job Application Tracker</h1>
-      <ApplicationCard 
-        company="Acme"
-        role="Backend Developer"
-        website="https://example.com/websiteurl"
-        jobPostingUrl="https://example.com/job/123"
-        applicationContact="email@email.com"
-        connections="Person Name"
-        status="APPLIED"
-        dateApplied="2026-08-11T16:41:50.127Z"
-        easyApply={false}
-        resumeVersion="https://example.com/resume"
-        coverLetter="https://example.com/coverletter"
-        jobDescription="https://example.com/screenshot"
-        notes={null}
-      />
+      {applications.map((app) => (
+        <ApplicationCard 
+          key={app.id}
+          company={app.company}
+          role={app.role}
+          website={app.website}
+          jobPostingUrl={app.jobPostingUrl}
+          applicationContact={app.applicationContact}
+          connections={app.connections}
+          status={app.status}
+          dateApplied={app.dateApplied}
+          easyApply={app.easyApply}
+          resumeVersion={app.resumeVersion}
+          coverLetter={app.coverLetter}
+          jobDescription={app.jobDescription}
+          notes={app.notes}
+        />
+      ))}
     </div>
   );
 }
