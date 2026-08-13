@@ -37,6 +37,9 @@ function App() {
           resumeVersion={app.resumeVersion}
           coverLetter={app.coverLetter}
           jobDescription={app.jobDescription}
+          followUp3Day={app.followUp3Day}
+          followUp1Week={app.followUp1Week}
+          followUp2Week={app.followUp2Week}
           notes={app.notes}
         />
       ))}
