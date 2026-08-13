@@ -29,6 +29,9 @@ model Application {
   resumeVersion      String
   coverLetter        String?
   jobDescription     String?
+  followUp3Day       Boolean  @default(false)
+  followUp1Week      Boolean  @default(false)
+  followUp2Week      Boolean  @default(false)
   notes              String?
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
