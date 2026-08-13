@@ -3,8 +3,9 @@
 // imports
 import { useState, useEffect } from "react";
 
-import ApplicationCard from "./components/ApplicationCard";
 import type { ApplicationResponse } from "@job-tracker/shared-types";
+import ApplicationCard from "./components/ApplicationCard";
+import StatusDashboard from "./components/StatusDashboard";
 
 function App() {
   const [applications, setApplications] = useState<ApplicationResponse[]>([]);
@@ -20,6 +21,7 @@ function App() {
   return (
     <div>
       <h1>Job Application Tracker</h1>
+      <StatusDashboard />
       {applications.map((app) => (
         <ApplicationCard 
           key={app.id}
