@@ -20,6 +20,7 @@ interface ApplicationCardProps {
     notes: string | null;
 }
 
+// use application data for applications card display
 function ApplicationCard({ 
     company, 
     role, 
@@ -41,6 +42,7 @@ function ApplicationCard({
         year: "2-digit",
     })
 
+    // applications card display
     return (
         <div className="application-card">
             <h1>{website ? <a href={website} target="_blank" rel="noopener noreferrer">{company}</a> : company}</h1>

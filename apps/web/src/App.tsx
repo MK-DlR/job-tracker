@@ -9,12 +9,14 @@ import type { ApplicationResponse } from "@job-tracker/shared-types";
 function App() {
   const [applications, setApplications] = useState<ApplicationResponse[]>([]);
 
+  // fetch applications
   useEffect(() => {
     fetch("http://localhost:3000/applications")
       .then((res) => res.json())
       .then((data: ApplicationResponse[]) => setApplications(data))
   }, []);
 
+  // return applications in card form
   return (
     <div>
       <h1>Job Application Tracker</h1>
