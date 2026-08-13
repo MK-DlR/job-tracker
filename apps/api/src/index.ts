@@ -3,6 +3,7 @@
 // imports
 import "dotenv/config";
 import express from "express";
+import cors from "cors";
 // import { prisma } from "@job-tracker/database";
 import applicationsRouter from "./routes/applications.js";
 
@@ -11,6 +12,7 @@ const PORT = Number(process.env.PORT) || 3000;
 
 // middleware
 app.use(express.json()); 
+app.use(cors({ origin: "http://localhost:5173" }));
 
 // routes
 app.use("/applications", applicationsRouter);

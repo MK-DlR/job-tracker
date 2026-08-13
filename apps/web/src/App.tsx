@@ -1,9 +1,22 @@
 // apps/web/src/App.tsx
 
 // imports
+import { useState, useEffect } from "react";
+
 import ApplicationCard from "./components/ApplicationCard";
+import type { ApplicationModel } from "@job-tracker/shared-types";
 
 function App() {
+  const [applications, setApplications] = useState<ApplicationModel[]>([]);
+  // TEMP
+  console.log(applications);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/applications")
+      .then((res) => res.json())
+      .then((data: ApplicationModel[]) => setApplications(data))
+  }, []);
+
   return (
     <div>
       <h1>Job Application Tracker</h1>
