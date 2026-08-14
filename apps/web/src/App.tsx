@@ -2,9 +2,10 @@
 
 // imports
 import { useState, useEffect } from "react";
-
+import { API_URL } from "./config";
 import type { ApplicationResponse, Status } from "@job-tracker/shared-types";
 import ApplicationCard from "./components/ApplicationCard";
+import ApplicationForm from "./components/ApplicationForm";
 import StatusDashboard from "./components/StatusDashboard";
 import { followUp } from "./utils/followUp";
 
@@ -51,7 +52,7 @@ function App() {
 
   // fetch applications
   useEffect(() => {
-    fetch("http://localhost:3000/applications")
+    fetch(`${API_URL}/applications`)
       .then((res) => res.json())
       .then((data: ApplicationResponse[]) => setApplications(data))
   }, []);
@@ -62,7 +63,7 @@ function App() {
       {/* display status stats */}
       <StatusDashboard />
 
-      {/* TODO: create filter/sort UI here */}
+      {/* display filter/sort UI */}
       <div className="filter-sort-ui">
         <label htmlFor="status">Status:</label>
         <select 
@@ -79,11 +80,13 @@ function App() {
           <option value="GHOSTED">Ghosted</option>
         </select>
 
+        <label htmlFor="dueFollowUpOnly">Follow Up Due</label>
         <input 
           type="checkbox" 
+          id="dueFollowUpOnly"
           checked={dueFollowUpOnly}
           onChange={(e) => setDueFollowUpOnly(e.target.checked)}
-        /> Follow Up Due
+        /> 
 
         <label htmlFor="sortBy">Sort By:</label>
         <select 

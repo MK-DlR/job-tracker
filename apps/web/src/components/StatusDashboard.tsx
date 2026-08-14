@@ -2,7 +2,7 @@
 
 // imports
 import { useState, useEffect } from "react";
-
+import { API_URL } from "../config";
 import type { StatusCounts } from "@job-tracker/shared-types";
 import { STATUS_LABELS } from "../utils/statusLabels";
 
@@ -18,7 +18,7 @@ function StatusDashboard() {
 
     // useEffect to fetch from /applications/stats/counts
     useEffect(() => {
-        fetch("http://localhost:3000/applications/stats/counts")
+        fetch(`${API_URL}/applications/stats/counts`)
             .then((res) => res.json())
             .then((data: StatusCounts) => setCounts(data))
     }, []);
