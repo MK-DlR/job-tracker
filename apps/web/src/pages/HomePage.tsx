@@ -69,10 +69,10 @@ function HomePage() {
         <div className="filter-sort-ui">
             <label htmlFor="status">Status:</label>
             <select 
-            name="status" 
-            id="status"
-            value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value as Status | "ALL")}
+                name="status" 
+                id="status"
+                value={statusFilter}
+                onChange={(e) => setStatusFilter(e.target.value as Status | "ALL")}
             >
             <option value="ALL">All</option>
             <option value="APPLIED">Applied</option>
@@ -84,18 +84,18 @@ function HomePage() {
 
             <label htmlFor="dueFollowUpOnly">Follow Up Due</label>
             <input 
-            type="checkbox" 
-            id="dueFollowUpOnly"
-            checked={dueFollowUpOnly}
-            onChange={(e) => setDueFollowUpOnly(e.target.checked)}
+                type="checkbox" 
+                id="dueFollowUpOnly"
+                checked={dueFollowUpOnly}
+                onChange={(e) => setDueFollowUpOnly(e.target.checked)}
             /> 
 
             <label htmlFor="sortBy">Sort By:</label>
             <select 
-            name="sortBy" 
-            id="sortBy"
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value as "dateApplied" | "status")}
+                name="sortBy" 
+                id="sortBy"
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as "dateApplied" | "status")}
             >
             <option value="dateApplied">Date Applied</option>
             <option value="status">Application Status</option>
@@ -103,10 +103,10 @@ function HomePage() {
 
             <label htmlFor="sortDirection">Sort Direction:</label>
             <select 
-            name="sortDirection" 
-            id="sortDirection"
-            value={sortDirection}
-            onChange={(e) => setSortDirection(e.target.value as "asc" | "desc")}
+                name="sortDirection" 
+                id="sortDirection"
+                value={sortDirection}
+                onChange={(e) => setSortDirection(e.target.value as "asc" | "desc")}
             >
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
@@ -115,25 +115,27 @@ function HomePage() {
 
         {/* display applications in card form */}
         {filteredApplications.map((app) => (
-            <ApplicationCard 
-            key={app.id}
-            company={app.company}
-            role={app.role}
-            website={app.website}
-            jobPostingUrl={app.jobPostingUrl}
-            applicationContact={app.applicationContact}
-            connections={app.connections}
-            status={app.status}
-            dateApplied={app.dateApplied}
-            easyApply={app.easyApply}
-            resumeVersion={app.resumeVersion}
-            coverLetter={app.coverLetter}
-            jobDescription={app.jobDescription}
-            followUp3Day={app.followUp3Day}
-            followUp1Week={app.followUp1Week}
-            followUp2Week={app.followUp2Week}
-            notes={app.notes}
-            />
+            <div key={app.id}>
+                <ApplicationCard 
+                    company={app.company}
+                    role={app.role}
+                    website={app.website}
+                    jobPostingUrl={app.jobPostingUrl}
+                    applicationContact={app.applicationContact}
+                    connections={app.connections}
+                    status={app.status}
+                    dateApplied={app.dateApplied}
+                    easyApply={app.easyApply}
+                    resumeVersion={app.resumeVersion}
+                    coverLetter={app.coverLetter}
+                    jobDescription={app.jobDescription}
+                    followUp3Day={app.followUp3Day}
+                    followUp1Week={app.followUp1Week}
+                    followUp2Week={app.followUp2Week}
+                    notes={app.notes}
+                />
+                <Link to={`/edit/${app.id}`}>Edit</Link>
+            </div>
         ))}
         </div>
     );
