@@ -52,11 +52,27 @@ function HomePage() {
     })
 
     // fetch applications
-    useEffect(() => {
+    function fetchApplications() {
         fetch(`${API_URL}/applications`)
-        .then((res) => res.json())
-        .then((data: ApplicationResponse[]) => setApplications(data))
+            .then((res) => res.json())
+            .then((data: ApplicationResponse[]) => setApplications(data));
+    }
+
+    useEffect(() => {
+        fetchApplications();
     }, [location.key]);
+
+    // handle deleting an application
+    async function handleDelete(id: number) {
+        let confirmed = window.confirm("Are you sure you want to delete this application?");
+
+        if (!confirmed) {
+            return;
+        }
+
+        await fetch(`${API_URL}/applications/${id}`, { method: "DELETE" });
+        fetchApplications();
+    }
 
     return (
         <div>
@@ -134,7 +150,9 @@ function HomePage() {
                     followUp2Week={app.followUp2Week}
                     notes={app.notes}
                 />
+                {/* edit and delete buttons */}
                 <Link to={`/edit/${app.id}`}>Edit</Link>
+                <button onClick={() => handleDelete(app.id)}>Delete</button>
             </div>
         ))}
         </div>
