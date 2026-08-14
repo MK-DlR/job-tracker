@@ -3,12 +3,51 @@
 // imports
 import { useState, useEffect } from "react";
 
-import type { ApplicationResponse } from "@job-tracker/shared-types";
+import type { ApplicationResponse, Status } from "@job-tracker/shared-types";
 import ApplicationCard from "./components/ApplicationCard";
 import StatusDashboard from "./components/StatusDashboard";
+import { followUp } from "./utils/followUp";
 
 function App() {
   const [applications, setApplications] = useState<ApplicationResponse[]>([]);
+
+  // states for filter
+  const [statusFilter, setStatusFilter] = useState<Status | "ALL">("ALL");
+  const [dueFollowUpOnly, setDueFollowUpOnly] = useState(false);
+  const [sortBy, setSortBy] = useState<"dateApplied" | "status">("dateApplied");
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("desc");
+
+  // filtered/sorted list
+  const filteredApplications = applications
+    .filter((app) => {
+      // filter applications
+      const matchesStatus = statusFilter === "ALL" || app.status === statusFilter;
+
+      // check if follow ups are due
+      const status = followUp(app.dateApplied);
+      const hasDueFollowUp = 
+        (status.threeDay.due && !app.followUp3Day) ||
+        (status.oneWeek.due && !app.followUp1Week) ||
+        (status.twoWeek.due && !app.followUp2Week);
+      const matchesFollowUp = !dueFollowUpOnly || hasDueFollowUp;
+
+      return matchesStatus && matchesFollowUp;
+  })
+  .sort((a, b) => {
+    let comparison: number;
+
+    if (sortBy === "dateApplied") {
+      comparison = new Date(a.dateApplied).getTime() - new Date(b.dateApplied).getTime();
+    } else {
+      comparison = a.status.localeCompare(b.status)  // returns negative/zero/positive
+    }
+
+    // flip the result if sortDirection is "desc"
+    if (sortDirection === "desc") {
+      return comparison * -1;
+    }
+    return comparison;
+  })
 
   // fetch applications
   useEffect(() => {
@@ -17,12 +56,60 @@ function App() {
       .then((data: ApplicationResponse[]) => setApplications(data))
   }, []);
 
-  // return applications in card form
   return (
     <div>
       <h1>Job Application Tracker</h1>
+      {/* display status stats */}
       <StatusDashboard />
-      {applications.map((app) => (
+
+      {/* TODO: create filter/sort UI here */}
+      <div className="filter-sort-ui">
+        <label htmlFor="status">Status:</label>
+        <select 
+          name="status" 
+          id="status"
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value as Status | "ALL")}
+        >
+          <option value="ALL">All</option>
+          <option value="APPLIED">Applied</option>
+          <option value="INTERVIEWING">Interviewing</option>
+          <option value="OFFERED">Offered</option>
+          <option value="REJECTED">Rejected</option>
+          <option value="GHOSTED">Ghosted</option>
+        </select>
+
+        <input 
+          type="checkbox" 
+          checked={dueFollowUpOnly}
+          onChange={(e) => setDueFollowUpOnly(e.target.checked)}
+        /> Follow Up Due
+
+        <label htmlFor="sortBy">Sort By:</label>
+        <select 
+          name="sortBy" 
+          id="sortBy"
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value as "dateApplied" | "status")}
+        >
+          <option value="dateApplied">Date Applied</option>
+          <option value="status">Application Status</option>
+        </select>
+
+        <label htmlFor="sortDirection">Sort Direction:</label>
+        <select 
+          name="sortDirection" 
+          id="sortDirection"
+          value={sortDirection}
+          onChange={(e) => setSortDirection(e.target.value as "asc" | "desc")}
+        >
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
+
+      {/* display applications in card form */}
+      {filteredApplications.map((app) => (
         <ApplicationCard 
           key={app.id}
           company={app.company}
