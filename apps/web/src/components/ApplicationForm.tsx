@@ -3,42 +3,53 @@
 // imports
 import React, { useState } from "react";
 import { API_URL } from "../config";
-import type { CreateApplicationInput, Status } from "@job-tracker/shared-types";
+import type { ApplicationResponse, CreateApplicationInput, Status } from "@job-tracker/shared-types";
 
 // props interface
 interface ApplicationFormProps {
     onSuccess: () => void;
+    existingApplication?: ApplicationResponse;
 }
 
-function ApplicationForm({ onSuccess }: ApplicationFormProps) {
-    const [formData, setFormData] = useState<CreateApplicationInput>({
-        company: "",
-        role: "",
-        website: null,
-        jobPostingUrl: "",
-        applicationContact: null,
-        connections: null,
-        status: "APPLIED",
-        dateApplied: new Date().toISOString(),
-        easyApply: false,
-        resumeVersion: "",
-        coverLetter: null,
-        jobDescription: null,
-        followUp3Day: false,
-        followUp1Week: false,
-        followUp2Week: false,
-        notes: null,
-    });
+function ApplicationForm({ onSuccess , existingApplication }: ApplicationFormProps) {
+    const [formData, setFormData] = useState<CreateApplicationInput>(
+        existingApplication ?? {
+            company: "",
+            role: "",
+            website: null,
+            jobPostingUrl: "",
+            applicationContact: null,
+            connections: null,
+            status: "APPLIED",
+            dateApplied: new Date().toISOString(),
+            easyApply: false,
+            resumeVersion: "",
+            coverLetter: null,
+            jobDescription: null,
+            followUp3Day: false,
+            followUp1Week: false,
+            followUp2Week: false,
+            notes: null,
+        }
+    );
 
     // submit handler
-    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
         e.preventDefault();
 
-        await fetch(`${API_URL}/applications`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData),
-        });
+        if (existingApplication) {
+            await fetch(`${API_URL}/applications/${existingApplication.id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+        } else {
+            await fetch(`${API_URL}/applications`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+        }
 
         onSuccess();
     }
@@ -164,7 +175,7 @@ function ApplicationForm({ onSuccess }: ApplicationFormProps) {
                     value={formData.notes || ""}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                 />
-            <button type="submit">Add Application</button>
+            <button type="submit">{existingApplication ? "Update Application" : "Add Application"}</button>
         </form>
 }
 
