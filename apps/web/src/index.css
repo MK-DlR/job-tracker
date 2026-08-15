@@ -2,7 +2,7 @@
 
 /* import css files */
 @import "./styles/theme.css";
-/* @import "./styles/ApplicationCard.css"; */
+@import "./styles/ApplicationCard.css";
 /* @import "./styles/ApplicationForm.css"; */
 @import "./styles/HomePage.css";
 /* @import "./styles/StatusDashboard.css"; */

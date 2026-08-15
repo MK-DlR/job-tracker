@@ -9,3 +9,11 @@ export const STATUS_LABELS: Record<Status, string> = {
     REJECTED: "Rejected",
     GHOSTED: "Ghosted",
 }
+
+export const STATUS_COLORS: Record<Status, string> = {
+    APPLIED: "var(--status-applied)",
+    INTERVIEWING: "var(--status-interviewing)",
+    OFFERED: "var(--status-offered)",
+    REJECTED: "var(--status-rejected)",
+    GHOSTED: "var(--status-ghosted)",
+};

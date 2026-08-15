@@ -1,2 +1,115 @@
 /* apps/web/src/styles/ApplicationCard.css */
 
+/* application card */
+.application-card-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 1.75rem;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+}
+
+.card-actions a {
+    color: var(--accent);
+}
+
+.card-actions button {
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.25rem 0.9rem;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.card-actions button:hover {
+    border-color: var(--status-rejected);
+    color: var(--status-rejected);
+    }
+
+.application-card {
+    background-color: var(--background-card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+}
+
+.application-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.application-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.15rem;
+}
+
+.application-card .role-link {
+    font-family: var(--font-code);
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+/* application status */
+.status-pill {
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    white-space: nowrap;
+}
+
+.application-card .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+    margin-bottom: 1rem;
+}
+
+.application-card .actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.application-card .follow-up-section {
+    border-top: 1px solid var(--line);
+    padding-top: 0.9rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+}
+
+.follow-up-section .follow-up-label {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.application-card .notes {
+    margin-top: 0.9rem;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}

@@ -2,7 +2,7 @@
 
 // imports
 import type { Status } from "@job-tracker/shared-types";
-import { STATUS_LABELS } from "../utils/statusLabels";
+import { STATUS_LABELS, STATUS_COLORS } from "../utils/statusLabels";
 import { followUp, followUpLabel } from "../utils/followUp";
 
 interface ApplicationCardProps {
@@ -56,23 +56,38 @@ function ApplicationCard({
         // applications card display
         return (
             <div className="application-card">
-                <h1>{website ? <a href={website} target="_blank" rel="noopener noreferrer">{company}</a> : company}</h1>
-                <h2><a href={jobPostingUrl} target="_blank" rel="noopener noreferrer">{role}</a></h2>
-                {applicationContact && <p>Application Contact: {applicationContact}</p>}
-                {connections && <p>Connections: {connections}</p>}
-                <p>Status: {STATUS_LABELS[status]}</p>
-                <p>Date Applied: {formattedDate}</p>
-                <p>Easy Apply: {easyApply ? "Yes" : "No"}</p>
-                <p><a href={resumeVersion} target="_blank" rel="noopener noreferrer">Resume</a></p>
-                {coverLetter && <p><a href={coverLetter} target="_blank" rel="noopener noreferrer">Cover Letter</a></p>}
-                {jobDescription && <p><a href={jobDescription} target="_blank" rel="noopener noreferrer">Job Description</a></p>}
-                <p>Follow Ups:</p>
-                <p>3 Days: {followUpLabel(followUp3Day, followUpStatus.threeDay.due)}</p>
-                <p>1 Week: {followUpLabel(followUp1Week, followUpStatus.oneWeek.due)}</p>
-                <p>2 Weeks: {followUpLabel(followUp2Week, followUpStatus.twoWeek.due)}</p>
-                {notes && <p>Notes: {notes}</p>}
+                <div className="card-header">
+                    <div>
+                    <h2>{website ? <a href={website} target="_blank" rel="noopener noreferrer">{company}</a> : company}</h2>
+                    <a className="role-link" href={jobPostingUrl} target="_blank" rel="noopener noreferrer">{role}</a>
+                    </div>
+                    <span className="status-pill" style={{ color: STATUS_COLORS[status] }}>
+                    {STATUS_LABELS[status]}
+                    </span>
+                </div>
+
+                <div className="meta-row">
+                    {applicationContact && <span>Contact: {applicationContact}</span>}
+                    {connections && <span>Connections: {connections}</span>}
+                    <span><b>Easy Apply:</b> {easyApply ? "Yes" : "No"}</span>
+                    <span><b>Applied:</b> {formattedDate}</span>
+                </div>
+
+                <div className="actions-row">
+                    <a href={resumeVersion} target="_blank" rel="noopener noreferrer">Resume →</a>
+                    {coverLetter && <a href={coverLetter} target="_blank" rel="noopener noreferrer">Cover Letter →</a>}
+                    {jobDescription && <a href={jobDescription} target="_blank" rel="noopener noreferrer">Job Description →</a>}
+                </div>
+
+                <div className="follow-up-section">
+                <span><span className="follow-up-label">3 Days:</span> {followUpLabel(followUp3Day, followUpStatus.threeDay.due)}</span>
+                <span><span className="follow-up-label">1 Week:</span> {followUpLabel(followUp1Week, followUpStatus.oneWeek.due)}</span>
+                <span><span className="follow-up-label">2 Weeks:</span> {followUpLabel(followUp2Week, followUpStatus.twoWeek.due)}</span>
+                </div>
+
+                {notes && <p className="notes">Notes: {notes}</p>}
             </div>
-        )
+        );
 }
 
 export default ApplicationCard;

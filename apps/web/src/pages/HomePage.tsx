@@ -133,7 +133,7 @@ function HomePage() {
             {/* display applications in card form */}
             <div className="applications-list">
                 {filteredApplications.map((app) => (
-                    <div key={app.id}>
+                    <div key={app.id} className="application-card-wrapper">
                         <ApplicationCard 
                             company={app.company}
                             role={app.role}
@@ -153,8 +153,10 @@ function HomePage() {
                             notes={app.notes}
                         />
                         {/* edit and delete buttons */}
-                        <Link to={`/edit/${app.id}`}>Edit</Link>
-                        <button onClick={() => handleDelete(app.id)}>Delete</button>
+                        <div className="card-actions">
+                            <Link to={`/edit/${app.id}`}>Edit</Link>
+                            <button onClick={() => handleDelete(app.id)}>Delete</button>
+                        </div>
                     </div>
                 ))}
             </div>
