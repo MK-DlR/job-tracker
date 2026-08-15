@@ -14,10 +14,10 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Job Application Tracker</h3>
 
   <p align="center">
-    project_description
+    Full-stack TypeScript job application tracker with follow-up reminders, status dashboard, and filtering/sorting built for tracking a real job search.
     <br />
     <a href="https://github.com/MK-DlR/job_tracker"><strong>Explore the docs »</strong></a>
     <br />
@@ -69,7 +69,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](demo_link)
 
-Here's a blank template to get started. To avoid retyping too much info, do a search and replace with your text editor for the following: `job_tracker`, `project_title`, `project_description`, `demo_link`, `project_license`
+Here's a blank template to get started. To avoid retyping too much info, do a search and replace with your text editor for the following: `job_tracker`, `Job Application Tracker`, `project_description`, `demo_link`, `project_license`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -82,6 +82,7 @@ Here's a blank template to get started. To avoid retyping too much info, do a se
 - [![Prisma]][Prisma-url]
 - [![React][React.js]][React-url]
 - [![React-router][React-router]][React-router-url]
+- [![TypeScript]][TypeScript-url]
 - [![Vite]][Vite-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -96,39 +97,59 @@ To get a local copy up and running, follow these steps.
 
 This is an example of how to list things you need to use the software and how to install them.
 
+- Node.js (recommended v22+)
 - npm
-  ```sh
-  npm install npm@latest -g
-  ```
+- PostgreSQL (local instance, or a [Neon](https://neon.com/) account - free tier works)
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/MK-DlR/job_tracker.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+3. Set up environment variables
+   Create .env files in both apps/api and packages/database, each containing:
+
+   ```text
+   DATABASE_URL=postgresql://username:password@localhost:5432/job_tracker
+   ```
+
+   (swap in your local Postgres credentials, or a Neon connection string)
+
+   Create apps/web/.env:
+
    ```js
-   const API_KEY = "ENTER YOUR API";
+   VITE_API_URL=http://localhost:3000
    ```
-5. Change git remote url to avoid accidental pushes to base project
+
+4. Set up the database
    ```sh
-   git remote set-url origin MK-DlR/job_tracker
-   git remote -v # confirm the changes
+   cd packages/database
+   npx prisma migrate dev
+   npx prisma generate
+   cd ../..
    ```
+5. Start the application
+   ```sh
+   npm run dev
+   ```
+   This starts the API server along with watch-mode builds for the shared packages.
+6. In a separate terminal, start the frontend
+   ```sh
+   npm run dev -w apps/web
+   ```
+7. Open the app at `http://localhost:5173`
 
 ### Notes
 
-- Backend: (if applicable)
-- Frontend: (if applicable)
-- Authentication: (if applicable)
-- Default seed (if applicable)
-- CORS is configured for local development (if applicable)
+- Backend: Express + TypeScript, Prisma 7 (driver-adapter based) + PostgreSQL
+- Frontend: React + TypeScript + Vite, React Router
+- Monorepo: npm workspaces, with packages/shared-types and packages/database shared across apps/api and apps/web
+- CORS is configured for local development
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -136,22 +157,21 @@ This is an example of how to list things you need to use the software and how to
 
 ## Usage
 
-project_description
+A personal job application tracker built to learn TypeScript hands-on, applied across a full stack rather than in isolation. Tracks every application from first submission through offer/rejection, including company/role details, resume and cover letter versions, and a 3-day / 1-week / 2-week follow-up reminder schedule based on job-search best practices.
 
-project_functionality
+Applications can be logged with company, role, status, resume/cover letter links, and notes. The dashboard shows a live count per status, and each application card automatically calculates whether a 3-day, 1-week, or 2-week follow-up is due based on its applied date.
 
 ### How to Use the App
 
 1. Open the app at http://localhost:5173 or visit the [live demo](demo_link)
-2. Step 2
-   - Nested step details
-3. Step 3
+2. Click "Add New Application" to log a new application
+3. Use the filter/sort panel to view applications by status, follow-up due, date, or status order
+4. Click "Edit" on any application to update its status or details, or "Delete" to remove it
 
 ### Default Setup Behavior
 
-- [EXAMPLE] A “Main Chat” channel is created automatically via the seed script
-- [EXAMPLE] A guest user account is also created for immediate access
-- [EXAMPLE] All users are automatically added to the default channel on creation
+- Tracker starts empty and is meant to be populated with real applications
+- Public demo deployment is seeded separately with fictional sample data, kept independent from any personal-use instance
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -172,7 +192,7 @@ See the [open issues](https://github.com/MK-DlR/job_tracker/issues) for a full l
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. || As this is a student project created for The Odin Project curriculum, it is currently not open for contributions.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -192,7 +212,7 @@ Contributions are what make the open source community such an amazing place to l
 
 ## License
 
-Distributed under the project_license. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -266,6 +286,8 @@ Project Link: [Repository](https://github.com/MK-DlR/job_tracker) & [Live Demo](
 [React-router-url]: https://reactrouter.com/
 [Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
 [Svelte-url]: https://svelte.dev/
+[TypeScript]: https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white
+[TypeScript-url]: https://www.typescriptlang.org/
 [Vite]: https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=fff
 [Vite-url]: https://vite.dev/
 [Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
