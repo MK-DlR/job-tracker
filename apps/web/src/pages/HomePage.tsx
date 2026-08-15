@@ -76,7 +76,8 @@ function HomePage() {
 
     return (
         <div className="home-page">
-            <h1>Job Application Tracker</h1>
+            <span className="eyebrow">// Application Tracker</span>
+            <h1>Job Tracker</h1>
             <Link to="/new" className="add-application-link">Add New Application</Link>
             {/* display status stats */}
             <StatusDashboard />
