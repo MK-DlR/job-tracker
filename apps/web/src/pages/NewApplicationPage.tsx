@@ -12,7 +12,7 @@ function NewApplicationPage() {
     }
 
     return (
-        <div>
+        <div className="form-page">
             <h1>Add New Application</h1>
             <ApplicationForm onSuccess={handleSuccess} />
         </div>

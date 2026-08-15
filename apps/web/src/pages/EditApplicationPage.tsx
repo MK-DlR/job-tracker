@@ -29,7 +29,7 @@ function EditApplicationPage() {
     } 
 
     return (
-        <div>
+        <div className="form-page">
             <h1>Edit Application</h1>
             <ApplicationForm existingApplication={application} onSuccess={handleSuccess} />
         </div>
