@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import { API_URL } from "../config";
 import type { StatusCounts } from "@job-tracker/shared-types";
-import { STATUS_LABELS } from "../utils/statusLabels";
+import { STATUS_LABELS, STATUS_COLORS } from "../utils/statusLabels";
 
 function StatusDashboard() {
     // state to hold the counts
@@ -24,15 +24,18 @@ function StatusDashboard() {
     }, []);
 
     // render the counts
-    return(
-        <div>
+    return (
+        <div className="status-dashboard">
             {Object.entries(counts).map(([status, count]) => (
-                <p key={status}>
-                    {STATUS_LABELS[status as keyof typeof STATUS_LABELS]}: {count}
-                </p>
+                <div key={status} className="status-stat" style={{ borderColor: STATUS_COLORS[status as keyof typeof STATUS_LABELS] }}>
+                <span className="status-stat-count">{count}</span>
+                <span className="status-stat-label" style={{ color: STATUS_COLORS[status as keyof typeof STATUS_LABELS] }}>
+                    {STATUS_LABELS[status as keyof typeof STATUS_LABELS]}
+                </span>
+                </div>
             ))}
         </div>
-    )
+    );
 }
 
 export default StatusDashboard;
