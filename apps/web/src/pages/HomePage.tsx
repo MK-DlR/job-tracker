@@ -75,86 +75,88 @@ function HomePage() {
     }
 
     return (
-        <div>
-        <h1>Job Application Tracker</h1>
-        <Link to="/new">Add New Application</Link>
-        {/* display status stats */}
-        <StatusDashboard />
+        <div className="home-page">
+            <h1>Job Application Tracker</h1>
+            <Link to="/new" className="add-application-link">Add New Application</Link>
+            {/* display status stats */}
+            <StatusDashboard />
 
-        {/* display filter/sort UI */}
-        <div className="filter-sort-ui">
-            <label htmlFor="status">Status:</label>
-            <select 
-                name="status" 
-                id="status"
-                value={statusFilter}
-                onChange={(e) => setStatusFilter(e.target.value as Status | "ALL")}
-            >
-            <option value="ALL">All</option>
-            <option value="APPLIED">Applied</option>
-            <option value="INTERVIEWING">Interviewing</option>
-            <option value="OFFERED">Offered</option>
-            <option value="REJECTED">Rejected</option>
-            <option value="GHOSTED">Ghosted</option>
-            </select>
+            {/* display filter/sort UI */}
+            <div className="filter-sort-ui">
+                <label htmlFor="status">Status:</label>
+                <select 
+                    name="status" 
+                    id="status"
+                    value={statusFilter}
+                    onChange={(e) => setStatusFilter(e.target.value as Status | "ALL")}
+                >
+                <option value="ALL">All</option>
+                <option value="APPLIED">Applied</option>
+                <option value="INTERVIEWING">Interviewing</option>
+                <option value="OFFERED">Offered</option>
+                <option value="REJECTED">Rejected</option>
+                <option value="GHOSTED">Ghosted</option>
+                </select>
 
-            <label htmlFor="dueFollowUpOnly">Follow Up Due</label>
-            <input 
-                type="checkbox" 
-                id="dueFollowUpOnly"
-                checked={dueFollowUpOnly}
-                onChange={(e) => setDueFollowUpOnly(e.target.checked)}
-            /> 
+                <label htmlFor="dueFollowUpOnly">Follow Up Due</label>
+                <input 
+                    type="checkbox" 
+                    id="dueFollowUpOnly"
+                    checked={dueFollowUpOnly}
+                    onChange={(e) => setDueFollowUpOnly(e.target.checked)}
+                /> 
 
-            <label htmlFor="sortBy">Sort By:</label>
-            <select 
-                name="sortBy" 
-                id="sortBy"
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as "dateApplied" | "status")}
-            >
-            <option value="dateApplied">Date Applied</option>
-            <option value="status">Application Status</option>
-            </select>
+                <label htmlFor="sortBy">Sort By:</label>
+                <select 
+                    name="sortBy" 
+                    id="sortBy"
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value as "dateApplied" | "status")}
+                >
+                <option value="dateApplied">Date Applied</option>
+                <option value="status">Application Status</option>
+                </select>
 
-            <label htmlFor="sortDirection">Sort Direction:</label>
-            <select 
-                name="sortDirection" 
-                id="sortDirection"
-                value={sortDirection}
-                onChange={(e) => setSortDirection(e.target.value as "asc" | "desc")}
-            >
-            <option value="asc">Ascending</option>
-            <option value="desc">Descending</option>
-            </select>
-        </div>
-
-        {/* display applications in card form */}
-        {filteredApplications.map((app) => (
-            <div key={app.id}>
-                <ApplicationCard 
-                    company={app.company}
-                    role={app.role}
-                    website={app.website}
-                    jobPostingUrl={app.jobPostingUrl}
-                    applicationContact={app.applicationContact}
-                    connections={app.connections}
-                    status={app.status}
-                    dateApplied={app.dateApplied}
-                    easyApply={app.easyApply}
-                    resumeVersion={app.resumeVersion}
-                    coverLetter={app.coverLetter}
-                    jobDescription={app.jobDescription}
-                    followUp3Day={app.followUp3Day}
-                    followUp1Week={app.followUp1Week}
-                    followUp2Week={app.followUp2Week}
-                    notes={app.notes}
-                />
-                {/* edit and delete buttons */}
-                <Link to={`/edit/${app.id}`}>Edit</Link>
-                <button onClick={() => handleDelete(app.id)}>Delete</button>
+                <label htmlFor="sortDirection">Sort Direction:</label>
+                <select 
+                    name="sortDirection" 
+                    id="sortDirection"
+                    value={sortDirection}
+                    onChange={(e) => setSortDirection(e.target.value as "asc" | "desc")}
+                >
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+                </select>
             </div>
-        ))}
+
+            {/* display applications in card form */}
+            <div className="applications-list">
+                {filteredApplications.map((app) => (
+                    <div key={app.id}>
+                        <ApplicationCard 
+                            company={app.company}
+                            role={app.role}
+                            website={app.website}
+                            jobPostingUrl={app.jobPostingUrl}
+                            applicationContact={app.applicationContact}
+                            connections={app.connections}
+                            status={app.status}
+                            dateApplied={app.dateApplied}
+                            easyApply={app.easyApply}
+                            resumeVersion={app.resumeVersion}
+                            coverLetter={app.coverLetter}
+                            jobDescription={app.jobDescription}
+                            followUp3Day={app.followUp3Day}
+                            followUp1Week={app.followUp1Week}
+                            followUp2Week={app.followUp2Week}
+                            notes={app.notes}
+                        />
+                        {/* edit and delete buttons */}
+                        <Link to={`/edit/${app.id}`}>Edit</Link>
+                        <button onClick={() => handleDelete(app.id)}>Delete</button>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

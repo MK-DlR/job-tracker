@@ -1,0 +1,44 @@
+/* apps/web/src/styles/HomePage.css */
+
+.home-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.home-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.add-application-link {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.add-application-link:hover {
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.filter-sort-ui {
+    background-color: var(--background-panel);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
