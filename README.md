@@ -22,7 +22,7 @@
     <a href="https://github.com/MK-DlR/job_tracker"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="demo_link">View Demo</a>
+    <a href="https://job-tracker-api-six.vercel.app/">View Demo</a>
     &middot;
     <a href="https://github.com/MK-DlR/job_tracker/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
@@ -67,9 +67,7 @@
 
 ## About The Project
 
-[![Job application Tracker Screen Shot][product-screenshot]](demo_link)
-
-Here's a blank template to get started. To avoid retyping too much info, do a search and replace with your text editor for the following: `job_tracker`, `Job Application Tracker`, `project_description`, `demo_link`, `project_license`
+[![Job Application Tracker Screen Shot][product-screenshot]](https://job-tracker-api-six.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -163,7 +161,7 @@ Applications can be logged with company, role, status, resume/cover letter links
 
 ### How to Use the App
 
-1. Open the app at http://localhost:5173 or visit the [live demo](demo_link)
+1. Open the app at http://localhost:5173 or visit the [live demo](https://job-tracker-api-six.vercel.app/)
 2. Click "Add New Application" to log a new application
 3. Use the filter/sort panel to view applications by status, follow-up due, date, or status order
 4. Click "Edit" on any application to update its status or details, or "Delete" to remove it
@@ -179,10 +177,13 @@ Applications can be logged with company, role, status, resume/cover letter links
 
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature
+- [x] Full CRUD for applications
+- [x] Status dashboard
+- [x] Filtering and sorting
+- [x] Follow-up reminder tracking
+- [x] Add LICENSE.txt
+- [] Deploy live demo
+- [] Mobile responsiveness pass
 
 See the [open issues](https://github.com/MK-DlR/job_tracker/issues) for a full list of proposed features (and known issues).
 
@@ -222,7 +223,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Adrien Newman - [@MK_DlR](https://twitter.com/MK_DlR) - adriennewman92@gmail.com
 
-Project Link: [Repository](https://github.com/MK-DlR/job_tracker) & [Live Demo](demo_link)
+Project Link: [Repository](https://github.com/MK-DlR/job_tracker) & [Live Demo](https://job-tracker-api-six.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
