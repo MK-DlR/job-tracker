@@ -3,5 +3,5 @@
     "compilerOptions": {
         "rootDir": "./src"
     },
-    "exclude": ["prisma.config.ts", "dist", "node_modules"]
+    "exclude": ["prisma.config.ts", "prisma/seed.ts", "dist", "node_modules"]
 }
