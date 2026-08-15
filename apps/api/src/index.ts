@@ -4,7 +4,6 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-// import { prisma } from "@job-tracker/database";
 import applicationsRouter from "./routes/applications.js";
 
 const app = express();
@@ -16,7 +15,7 @@ app.use(cors({ origin: "http://localhost:5173" }));
 
 // routes
 app.use("/applications", applicationsRouter);
-app.get("/health", (req, res) => {
+app.get("/health", (_req, res) => {
     res.json({ status: "ok" });
 });
 

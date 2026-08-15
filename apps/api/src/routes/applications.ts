@@ -11,7 +11,7 @@ import type { StatusCounts } from "@job-tracker/shared-types";
 const router = Router();
 
 // stats counts
-router.get("/stats/counts", async (req: Request, res: Response<StatusCounts>) => {
+router.get("/stats/counts", async (_req: Request, res: Response<StatusCounts>) => {
     const grouped = await prisma.application.groupBy({
         by: ["status"],
         _count: { status: true },
@@ -41,7 +41,7 @@ router.post("/", async (req: Request<{}, {}, CreateApplicationInput>, res: Respo
 });
 
 // get applications
-router.get("/", async (req: Request, res: Response) => {
+router.get("/", async (_req: Request, res: Response) => {
     const applications = await prisma.application.findMany();
     res.json(applications);
 });
