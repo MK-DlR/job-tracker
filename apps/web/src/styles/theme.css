@@ -1,0 +1,32 @@
+/* apps/web/src/styles/theme.css */
+
+:root {
+    /* base palette - do not use directly */
+    --ink: #1B2019;
+    --ink-soft: #4A4F45;
+    --light-cream: #F3EFE6;
+    --cream: #EAE1CD;
+    --coral: #D8603E;
+    --white: #FFFFFF;
+
+    --line: rgba(27, 32, 25, 0.12);
+
+    /* status palette */
+    --status-applied: #8A9A87;                /* sage - neutral, "in progress" */
+    --status-interviewing: #E3A63C;           /* gold - active, promising */
+    --status-offered: #5C8C5A;                /* deeper green - success, distinct from sage */
+    --status-rejected: #B0483A;               /* muted rust-red - closed, not jarringly bright */
+    --status-ghosted: #8C8579;                /* warm gray - inactive/unclear */
+
+    /* surfaces */
+    --background-page: var(--light-cream);      /* main page background */
+    --background-panel: var(--cream);           /* filter/sort controls, dashboard */
+    --background-card: var(--white);            /* individual card background */
+
+    /* text */
+    --headings: var(--ink);                     /* headers/primary text */
+    --secondary-text: var(--ink-soft);          /* labels/muted info */
+
+    /* accent */
+    --accent: var(--coral);                     /* add app button, edit, dashboard numbers */
+}
