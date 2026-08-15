@@ -84,50 +84,54 @@ function HomePage() {
 
             {/* display filter/sort UI */}
             <div className="filter-sort-ui">
-                <label htmlFor="status">Status:</label>
-                <select 
-                    name="status" 
-                    id="status"
-                    value={statusFilter}
-                    onChange={(e) => setStatusFilter(e.target.value as Status | "ALL")}
-                >
-                <option value="ALL">All</option>
-                <option value="APPLIED">Applied</option>
-                <option value="INTERVIEWING">Interviewing</option>
-                <option value="OFFERED">Offered</option>
-                <option value="REJECTED">Rejected</option>
-                <option value="GHOSTED">Ghosted</option>
-                </select>
+                <div className="filter-group">
+                    <label htmlFor="status">Status:</label>
+                    <select 
+                        name="status" 
+                        id="status"
+                        value={statusFilter}
+                        onChange={(e) => setStatusFilter(e.target.value as Status | "ALL")}
+                    >
+                    <option value="ALL">All</option>
+                    <option value="APPLIED">Applied</option>
+                    <option value="INTERVIEWING">Interviewing</option>
+                    <option value="OFFERED">Offered</option>
+                    <option value="REJECTED">Rejected</option>
+                    <option value="GHOSTED">Ghosted</option>
+                    </select>
+                </div>
 
-                <label htmlFor="dueFollowUpOnly">Follow Up Due</label>
-                <input 
-                    type="checkbox" 
-                    id="dueFollowUpOnly"
-                    checked={dueFollowUpOnly}
-                    onChange={(e) => setDueFollowUpOnly(e.target.checked)}
-                /> 
+                <div className="filter-group">
+                    <label htmlFor="dueFollowUpOnly">Follow Up Due</label>
+                    <input 
+                        type="checkbox" 
+                        id="dueFollowUpOnly"
+                        checked={dueFollowUpOnly}
+                        onChange={(e) => setDueFollowUpOnly(e.target.checked)}
+                    /> 
+                </div>
 
-                <label htmlFor="sortBy">Sort By:</label>
-                <select 
-                    name="sortBy" 
-                    id="sortBy"
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value as "dateApplied" | "status")}
-                >
-                <option value="dateApplied">Date Applied</option>
-                <option value="status">Application Status</option>
-                </select>
-
-                <label htmlFor="sortDirection">Sort Direction:</label>
-                <select 
-                    name="sortDirection" 
-                    id="sortDirection"
-                    value={sortDirection}
-                    onChange={(e) => setSortDirection(e.target.value as "asc" | "desc")}
-                >
-                <option value="asc">Ascending</option>
-                <option value="desc">Descending</option>
-                </select>
+                <div className="filter-group sort-group">
+                    <label htmlFor="sortBy">Sort:</label>
+                    <select 
+                        name="sortBy" 
+                        id="sortBy"
+                        value={sortBy}
+                        onChange={(e) => setSortBy(e.target.value as "dateApplied" | "status")}
+                    >
+                        <option value="dateApplied">Date Applied</option>
+                        <option value="status">Application Status</option>
+                    </select>
+                    <select 
+                        name="sortDirection" 
+                        id="sortDirection"
+                        value={sortDirection}
+                        onChange={(e) => setSortDirection(e.target.value as "asc" | "desc")}
+                    >
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
             </div>
 
             {/* display applications in card form */}

@@ -50,15 +50,21 @@
     margin-bottom: 2.5rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 1.25rem;
+    gap: 1.5rem;
     align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .filter-sort-ui label {
     font-family: var(--font-code);
     font-size: 0.8rem;
     color: var(--secondary-text);
-    margin-right: 0.4rem;
+    white-space: nowrap;
 }
 
 .filter-sort-ui select {
@@ -68,6 +74,10 @@
     padding: 0.35rem 0.9rem;
     background-color: var(--white);
     color: var(--ink);
+}
+
+.sort-group select:first-of-type {
+    margin-right: 0.4rem;
 }
 
 /* application list */
