@@ -22,7 +22,7 @@
     <a href="https://github.com/MK-DlR/job_tracker"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://job-tracker-mweneihqf-mk-dirs-projects.vercel.app/">View Demo</a>
+    <a href="https://job-tracker-api-six.vercel.app/">View Demo</a>
     &middot;
     <a href="https://github.com/MK-DlR/job_tracker/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
@@ -67,7 +67,7 @@
 
 ## About The Project
 
-[![Job Application Tracker Screen Shot][product-screenshot]](https://job-tracker-mweneihqf-mk-dirs-projects.vercel.app/)
+[![Job Application Tracker Screen Shot][product-screenshot]](https://job-tracker-api-six.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -161,7 +161,7 @@ Applications can be logged with company, role, status, resume/cover letter links
 
 ### How to Use the App
 
-1. Open the app at http://localhost:5173 or visit the [live demo](https://job-tracker-mweneihqf-mk-dirs-projects.vercel.app/)
+1. Open the app at http://localhost:5173 or visit the [live demo](https://job-tracker-api-six.vercel.app/)
 2. Click "Add New Application" to log a new application
 3. Use the filter/sort panel to view applications by status, follow-up due, date, or status order
 4. Click "Edit" on any application to update its status or details, or "Delete" to remove it
@@ -223,7 +223,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Adrien Newman - [@MK_DlR](https://twitter.com/MK_DlR) - adriennewman92@gmail.com
 
-Project Link: [Repository](https://github.com/MK-DlR/job_tracker) & [Live Demo](https://job-tracker-mweneihqf-mk-dirs-projects.vercel.app/)
+Project Link: [Repository](https://github.com/MK-DlR/job_tracker) & [Live Demo](https://job-tracker-api-six.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
