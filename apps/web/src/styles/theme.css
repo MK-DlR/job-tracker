@@ -29,4 +29,9 @@
 
     /* accent */
     --accent: var(--coral);                     /* add app button, edit, dashboard numbers */
+
+    /* fonts */
+    --font-heading: 'Fraunces', serif;          /* headers */
+    --font-body: 'Inter', sans-serif;           /* main text */
+    --font-code: 'JetBrains Mono', monospace;   /* accent text */
 }
