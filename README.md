@@ -67,7 +67,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](demo_link)
+[![Job application Tracker Screen Shot][product-screenshot]](demo_link)
 
 Here's a blank template to get started. To avoid retyping too much info, do a search and replace with your text editor for the following: `job_tracker`, `Job Application Tracker`, `project_description`, `demo_link`, `project_license`
 
