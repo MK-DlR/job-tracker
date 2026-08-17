@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/MK-DlR/job_tracker">
+  <a href="https://github.com/MK-DlR/job-tracker">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -19,14 +19,14 @@
   <p align="center">
     Full-stack TypeScript job application tracker with follow-up reminders, status dashboard, and filtering/sorting built for tracking a real job search.
     <br />
-    <a href="https://github.com/MK-DlR/job_tracker"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/MK-DlR/job-tracker"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://job-tracker-api-six.vercel.app/">View Demo</a>
     &middot;
-    <a href="https://github.com/MK-DlR/job_tracker/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/MK-DlR/job-tracker/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
-    <a href="https://github.com/MK-DlR/job_tracker/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/MK-DlR/job-tracker/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -103,7 +103,7 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/MK-DlR/job_tracker.git
+   git clone https://github.com/MK-DlR/job-tracker.git
    ```
 2. Install NPM packages
    ```sh
@@ -113,7 +113,7 @@ This is an example of how to list things you need to use the software and how to
    Create .env files in both apps/api and packages/database, each containing:
 
    ```text
-   DATABASE_URL=postgresql://username:password@localhost:5432/job_tracker
+   DATABASE_URL=postgresql://username:password@localhost:5432/job-tracker
    ```
 
    (swap in your local Postgres credentials, or a Neon connection string)
@@ -182,10 +182,10 @@ Applications can be logged with company, role, status, resume/cover letter links
 - [x] Filtering and sorting
 - [x] Follow-up reminder tracking
 - [x] Add LICENSE.txt
-- [] Deploy live demo
-- [] Mobile responsiveness pass
+- [x] Deploy live demo
+- [x] Mobile responsiveness pass
 
-See the [open issues](https://github.com/MK-DlR/job_tracker/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/MK-DlR/job-tracker/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -205,8 +205,8 @@ Contributions are what make the open source community such an amazing place to l
 
 ### Top contributors:
 
-<a href="https://github.com/MK-DlR/job_tracker/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=MK-DlR/job_tracker" alt="contrib.rocks image" />
+<a href="https://github.com/MK-DlR/job-tracker/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=MK-DlR/job-tracker" alt="contrib.rocks image" />
 </a>
 
 <!-- LICENSE -->
@@ -223,7 +223,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Adrien Newman - [@MK_DlR](https://twitter.com/MK_DlR) - adriennewman92@gmail.com
 
-Project Link: [Repository](https://github.com/MK-DlR/job_tracker) & [Live Demo](https://job-tracker-api-six.vercel.app/)
+Project Link: [Repository](https://github.com/MK-DlR/job-tracker) & [Live Demo](https://job-tracker-api-six.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -243,16 +243,16 @@ Project Link: [Repository](https://github.com/MK-DlR/job_tracker) & [Live Demo](
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/MK-DlR/job_tracker.svg?style=for-the-badge
-[contributors-url]: https://github.com/MK-DlR/job_tracker/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/MK-DlR/job_tracker.svg?style=for-the-badge
-[forks-url]: https://github.com/MK-DlR/job_tracker/network/members
-[stars-shield]: https://img.shields.io/github/stars/MK-DlR/job_tracker.svg?style=for-the-badge
-[stars-url]: https://github.com/MK-DlR/job_tracker/stargazers
-[issues-shield]: https://img.shields.io/github/issues/MK-DlR/job_tracker.svg?style=for-the-badge
-[issues-url]: https://github.com/MK-DlR/job_tracker/issues
-[license-shield]: https://img.shields.io/github/license/MK-DlR/job_tracker.svg?style=for-the-badge
-[license-url]: https://github.com/MK-DlR/job_tracker/blob/main/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/MK-DlR/job-tracker.svg?style=for-the-badge
+[contributors-url]: https://github.com/MK-DlR/job-tracker/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/MK-DlR/job-tracker.svg?style=for-the-badge
+[forks-url]: https://github.com/MK-DlR/job-tracker/network/members
+[stars-shield]: https://img.shields.io/github/stars/MK-DlR/job-tracker.svg?style=for-the-badge
+[stars-url]: https://github.com/MK-DlR/job-tracker/stargazers
+[issues-shield]: https://img.shields.io/github/issues/MK-DlR/job-tracker.svg?style=for-the-badge
+[issues-url]: https://github.com/MK-DlR/job-tracker/issues
+[license-shield]: https://img.shields.io/github/license/MK-DlR/job-tracker.svg?style=for-the-badge
+[license-url]: https://github.com/MK-DlR/job-tracker/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/adrien-newman
 [product-screenshot]: images/screenshot.png
