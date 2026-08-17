@@ -15,24 +15,30 @@ enum Status {
   GHOSTED
 }
 
+enum FollowUpState {
+  PENDING
+  DONE
+  NOT_APPLICABLE
+}
+
 model Application {
-  id                 Int      @id @default(autoincrement())
+  id                 Int           @id @default(autoincrement())
   company            String
   role               String
   website            String?
   jobPostingUrl      String
   applicationContact String?
   connections        String?
-  status             Status   @default(APPLIED)
-  dateApplied        DateTime @default(now())
-  easyApply          Boolean  @default(false)
+  status             Status        @default(APPLIED)
+  dateApplied        DateTime      @default(now())
+  easyApply          Boolean       @default(false)
   resumeVersion      String
   coverLetter        String?
   jobDescription     String?
-  followUp3Day       Boolean  @default(false)
-  followUp1Week      Boolean  @default(false)
-  followUp2Week      Boolean  @default(false)
+  followUp3Day       FollowUpState @default(PENDING)
+  followUp1Week      FollowUpState @default(PENDING)
+  followUp2Week      FollowUpState @default(PENDING)
   notes              String?
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
 }

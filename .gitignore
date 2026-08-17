@@ -10,6 +10,9 @@ dist/
 # Prisma generated files
 **/generated/prisma/
 
+# Database backups
+*.sql
+
 # Editor
 .vscode/*
 !.vscode/extensions.json

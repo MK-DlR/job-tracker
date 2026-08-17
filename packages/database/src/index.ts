@@ -5,7 +5,7 @@ import { PrismaClient } from "./generated/prisma/client.js";
 import { PrismaPg } from "@prisma/adapter-pg";
 
 // exports
-export { Status } from "./generated/prisma/enums.js";
+export { Status, FollowUpState } from "./generated/prisma/enums.js";
 export { PrismaClient, Prisma } from "./generated/prisma/client.js";
 export type { ApplicationModel, ApplicationCreateInput } from "./generated/prisma/models/Application.js";
 

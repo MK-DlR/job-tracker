@@ -1,5 +1,8 @@
 // apps/web/src/utils/followUp.ts
 
+// imports
+import type { FollowUpState } from "@job-tracker/shared-types";
+
 // calculate dates
 function addDays(date: Date, days: number): Date {
     return new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -34,9 +37,11 @@ export function followUp(dateApplied: string): FollowUpStatus {
 }
 
 // helper function for displaying if due
-export function followUpLabel(done: boolean, due: boolean): string {
-    if (done) {
+export function followUpLabel(state: FollowUpState, due: boolean): string {
+    if (state === "DONE") {
         return "✓ Done";
+    } else if (state === "NOT_APPLICABLE") {
+        return "N/A";
     } else if (due) {
         return "Due";
     } else {

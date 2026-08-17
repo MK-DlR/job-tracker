@@ -1,7 +1,7 @@
 // apps/web/src/components/ApplicationCard.tsx
 
 // imports
-import type { Status } from "@job-tracker/shared-types";
+import type { Status, FollowUpState } from "@job-tracker/shared-types";
 import { STATUS_LABELS, STATUS_COLORS } from "../utils/statusLabels";
 import { followUp, followUpLabel } from "../utils/followUp";
 
@@ -18,9 +18,9 @@ interface ApplicationCardProps {
     resumeVersion: string;
     coverLetter: string | null;
     jobDescription: string | null;
-    followUp3Day: boolean;
-    followUp1Week: boolean;
-    followUp2Week: boolean;
+    followUp3Day: FollowUpState;
+    followUp1Week: FollowUpState;
+    followUp2Week: FollowUpState;
     notes: string | null;
 }
 
@@ -81,9 +81,9 @@ function ApplicationCard({
                 </div>
 
                 <div className="follow-up-section">
-                <span><span className="follow-up-label">3 Days:</span> {followUpLabel(followUp3Day, followUpStatus.threeDay.due)}</span>
-                <span><span className="follow-up-label">1 Week:</span> {followUpLabel(followUp1Week, followUpStatus.oneWeek.due)}</span>
-                <span><span className="follow-up-label">2 Weeks:</span> {followUpLabel(followUp2Week, followUpStatus.twoWeek.due)}</span>
+                    <span><span className="follow-up-label">3 Days:</span> {followUpLabel(followUp3Day, followUpStatus.threeDay.due)}</span>
+                    <span><span className="follow-up-label">1 Week:</span> {followUpLabel(followUp1Week, followUpStatus.oneWeek.due)}</span>
+                    <span><span className="follow-up-label">2 Weeks:</span> {followUpLabel(followUp2Week, followUpStatus.twoWeek.due)}</span>
                 </div>
 
                 {notes && <p className="notes">Notes: {notes}</p>}

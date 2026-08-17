@@ -28,9 +28,9 @@ function HomePage() {
         // check if follow ups are due
         const status = followUp(app.dateApplied);
         const hasDueFollowUp = 
-            (status.threeDay.due && !app.followUp3Day) ||
-            (status.oneWeek.due && !app.followUp1Week) ||
-            (status.twoWeek.due && !app.followUp2Week);
+            (status.threeDay.due && app.followUp3Day === "PENDING") ||
+            (status.oneWeek.due && app.followUp1Week === "PENDING") ||
+            (status.twoWeek.due && app.followUp2Week === "PENDING");
         const matchesFollowUp = !dueFollowUpOnly || hasDueFollowUp;
 
         return matchesStatus && matchesFollowUp;

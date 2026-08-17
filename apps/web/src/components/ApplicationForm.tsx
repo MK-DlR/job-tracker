@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { API_URL } from "../config";
-import type { ApplicationResponse, CreateApplicationInput, Status } from "@job-tracker/shared-types";
+import type { ApplicationResponse, CreateApplicationInput, Status, FollowUpState } from "@job-tracker/shared-types";
 
 // props interface
 interface ApplicationFormProps {
@@ -27,9 +27,9 @@ function ApplicationForm({ onSuccess , existingApplication }: ApplicationFormPro
             resumeVersion: "",
             coverLetter: null,
             jobDescription: null,
-            followUp3Day: false,
-            followUp1Week: false,
-            followUp2Week: false,
+            followUp3Day: "PENDING",
+            followUp1Week: "PENDING",
+            followUp2Week: "PENDING",
             notes: null,
         }
     );
@@ -135,6 +135,42 @@ function ApplicationForm({ onSuccess , existingApplication }: ApplicationFormPro
                 <input type="text" id="jobDescription" name="jobDescription" value={formData.jobDescription || ""}
                 onChange={(e) => setFormData({ ...formData, jobDescription: e.target.value })} />
             </div>
+
+            {existingApplication && (
+                <div>
+                    <label htmlFor="followUp3Day">3 Day Follow Up:</label>
+                    <select id="followUp3Day" name="followUp3Day" value={formData.followUp3Day}
+                    onChange={(e) => setFormData({ ...formData, followUp3Day: e.target.value as FollowUpState })}>
+                    <option value="PENDING">Pending</option>
+                    <option value="DONE">Done</option>
+                    <option value="NOT_APPLICABLE">Not Applicable</option>
+                    </select>
+                </div>
+            )}
+
+            {existingApplication && (
+                <div>
+                    <label htmlFor="followUp1Week">1 Week Follow Up:</label>
+                    <select id="followUp1Week" name="followUp1Week" value={formData.followUp1Week}
+                    onChange={(e) => setFormData({ ...formData, followUp1Week: e.target.value as FollowUpState })}>
+                    <option value="PENDING">Pending</option>
+                    <option value="DONE">Done</option>
+                    <option value="NOT_APPLICABLE">Not Applicable</option>
+                    </select>
+                </div>
+            )}
+
+            {existingApplication && (
+                <div>
+                    <label htmlFor="followUp2Week">2 Week Follow Up:</label>
+                    <select id="followUp2Week" name="followUp2Week" value={formData.followUp2Week}
+                    onChange={(e) => setFormData({ ...formData, followUp2Week: e.target.value as FollowUpState })}>
+                    <option value="PENDING">Pending</option>
+                    <option value="DONE">Done</option>
+                    <option value="NOT_APPLICABLE">Not Applicable</option>
+                    </select>
+                </div>
+            )}
         
             <div className="field-full">
                 <label htmlFor="notes">Notes:</label>

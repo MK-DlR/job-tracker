@@ -1,2 +1,2 @@
-export { Status } from "@job-tracker/database";
+export { Status, FollowUpState } from "@job-tracker/database";
 //# sourceMappingURL=status.d.ts.map
