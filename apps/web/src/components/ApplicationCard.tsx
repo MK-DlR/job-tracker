@@ -67,10 +67,10 @@ function ApplicationCard({
                 </div>
 
                 <div className="meta-row">
-                    {applicationContact && <span>Contact: {applicationContact}</span>}
-                    {connections && <span>Connections: {connections}</span>}
-                    <span><b>Easy Apply:</b> {easyApply ? "Yes" : "No"}</span>
                     <span><b>Applied:</b> {formattedDate}</span>
+                    {applicationContact && <span><b>Contact:</b> {applicationContact}</span>}
+                    {connections && <span><b>Connections:</b> {connections}</span>}
+                    <span><b>Easy Apply:</b> {easyApply ? "Yes" : "No"}</span>
                 </div>
 
                 <div className="actions-row">
